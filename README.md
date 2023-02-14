@@ -23,8 +23,18 @@ Create "Telekasten" list in Mac Reminders application
 synctoo.sh
 ```
 
-1. `- [ ] something` will be synced to Reminders
+## Sync from Telekasten to Reminders
+
+1. `- [ ] something` will be synced to Reminders as a new item.
 2. when changed to `- [x] somehing`, it will be marked as done in Reminders
-3. newly createed todos in Reminder will be synced to Telekasten
-4. `list:abcd` will be put into "list.md" as `- [ ] abcd`
-5. `abcd` (without list name) will be put into "Reminders.md" as `- [ ] abcd`
+
+## Sync from Reminders to Telekasten
+
+Only todos in "Telekasten" list are synced.
+
+newly createed todos will be synced to Telekasten
+
+1. `topic:abcd` will be put into "topic.md" as `- [ ] abcd`
+2. `abcd` (without list name) will be put into "Reminders.md" as `- [ ] abcd`
+
+Attention: the first ':' of a Reminders item will always be used as separator between TK note name and todo text. so normally, you'd like to avoid have ':' in todo text

@@ -44,9 +44,16 @@ done
 
 cat $MAC_TELEKASTEN |sed 's/^[0-9]*: //' | while read -r line; 
 do
-  list=`echo $line | sed 's/:.*//'`
-  item=`echo $line | sed 's/^[^:]*://'`
-  item=`echo $item | sed 's/【/\[/g'|sed 's/】/\]/g'`
+  list="Reminders"
+  item="unknown"
+  if [[ $line =~ [:] ]]; then
+    list=`echo $line | sed 's/:.*//'`
+    item=`echo $line | sed 's/^[^:]*://'`
+    item=`echo $item | sed 's/【/\[/g'|sed 's/】/\]/g'`
+  else
+    list="Reminders"
+    item=$line
+  fi
   md=$VAULT/$list.md
   blank_patterned_item=`echo $item | sed 's/ / \*/g' |sed 's/\[/\\\[/g'|sed 's/\]/\\\]/g' `
   if ! grep -q "\- \[ \] $blank_patterned_item" "$md"; then
