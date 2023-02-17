@@ -17,7 +17,7 @@ fi
 
 reminders show Telekasten > $MAC_TELEKASTEN
 
-rg -N -e "^- \[[ ]\]" $VAULT|sed 's/- \[[ x]\] //g' | while read -r line; 
+rg -N -e "^- \[[ ]\]" $VAULT|sed 's/- \[[ xX]\] //g' | while read -r line; 
 do 
   list=`echo $line | awk -F'.md:' '{print $1}' | awk -F"$DELIM\/" '{print $NF}'`
   item=`echo $line | awk -F'.md:' '{print $2}'`
@@ -28,7 +28,7 @@ do
 done
 
 
-rg -N -e "^- \[x\]" $VAULT/|sed 's/- \[[ x]\] //g' | while read -r line; 
+rg -N -e "^- \[[xX]\]" $VAULT/|sed 's/- \[[ xX]\] //g' | while read -r line; 
 do 
   list=`echo $line | awk -F'.md:' '{print $1}' | awk -F"$DELIM\/" '{print $NF}'`
   item=`echo $line | awk -F'.md:' '{print $2}'`
@@ -42,6 +42,7 @@ done
 
 
 
+reminders show Telekasten > $MAC_TELEKASTEN
 cat $MAC_TELEKASTEN |sed 's/^[0-9]*: //' | while read -r line; 
 do
   list="Reminders"
@@ -56,7 +57,7 @@ do
   fi
   md=$VAULT/$list.md
   blank_patterned_item=`echo $item | sed 's/ / \*/g' |sed 's/\[/\\\[/g'|sed 's/\]/\\\]/g' `
-  if ! grep -q "\- \[ \] $blank_patterned_item" "$md"; then
+  if ! grep -q "\- \[[ xX]\] $blank_patterned_item" "$md"; then
     echo "Add $item to $list.md"
     echo "- [ ] $item" >> $md
   fi
