@@ -59,7 +59,7 @@ do
   blank_patterned_item=`echo $item | sed 's/ / \*/g' |sed 's/\[/\\\[/g'|sed 's/\]/\\\]/g' `
   if ! grep -q "\- \[[ xX]\] $blank_patterned_item" "$md"; then
     echo "Add $item to $list.md"
-    echo "- [ ] $item" >> $md
+    echo "- [ ] $item" >> "$md"
   fi
 done
 
