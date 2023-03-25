@@ -1,5 +1,9 @@
 # synctodo
 
+This tool has been integraed into [Simple Markdown Preview, Outliner and Searcher](https://github.com/cnshsliu/smp.nvim)
+This repo will not be updated.
+
+
 Sync todos among [Telekasten](https://github.com/renerocksai/telekasten.nvim), Mac Reminders and iPhone Reminders
 
 ([Telekasten](https://github.com/renerocksai/telekasten.nvim) is a Neovim (lua) plugin for working with a markdown zettelkasten / wiki and mixing it with a journal, based on telescope.nvim)
