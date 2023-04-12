@@ -1,6 +1,6 @@
 # synctodo
 
-This tool has been integraed into [Simple Markdown Preview, Outliner and Searcher](https://github.com/cnshsliu/smp.nvim)
+This tool has been integrated into [Simple Markdown Preview, Outliner and Searcher](https://github.com/cnshsliu/smp.nvim)
 This repo will not be updated.
 
 
